@@ -39,7 +39,11 @@ function removeFromCart(event){
 function addProducts(){
   let list = document.getElementById("product-list");
   let products = JSON.parse(window.localStorage.getItem("products"));
-  let cart = JSON.parse(window.localStorage.getItem('cart'));
+  let cart = null;
+  try{
+    cart = JSON.parse(window.localStorage.getItem('cart'));
+  }
+  catch(exception){}
   let cartCount = document.getElementById("cart-count");
   for(let i = 0; i < products.length; i++){
     let prod = document.createElement("product-item");
